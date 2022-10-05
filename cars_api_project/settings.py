@@ -19,8 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q+i0$j3&ilc*7fz20uj#%442f7wpv%)!(340ccxgcm+4n)9&5e'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -70,15 +69,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cars_api_project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -121,3 +112,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from cars_api_project.local_settings import *
+except ImportError:
+    pass
